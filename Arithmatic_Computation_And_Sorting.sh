@@ -42,7 +42,7 @@ for (( i=0 ; i<=$noOfResult ; i++ ))
 do
         for (( j=$((i+1)) ; j<=$noOfResult ; j++ ))
         do
-            if [[ ${computeResult[$i]} -lt ${computeResult[$j]} ]]
+            if [[ ${computeResult[$i]} -gt ${computeResult[$j]} ]]
             then
               temp=${computeResult[$i]}
               computeResult[$i]=${computeResult[$j]}

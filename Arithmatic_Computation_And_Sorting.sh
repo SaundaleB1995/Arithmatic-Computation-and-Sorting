@@ -31,3 +31,23 @@ echo "Result 4=" ${Result[4]}
 counter=0
 computeResult[((counter++))]=${Result[@]}
 echo "["${computeResult[@]}"]"
+
+noOfResult=4
+for (( i=0 ; i<=$noOfResult ; i++ ))
+do
+         computeResult[$i]=${Result["$i"]}
+done
+
+for (( i=0 ; i<=$noOfResult ; i++ ))
+do
+        for (( j=$((i+1)) ; j<=$noOfResult ; j++ ))
+        do
+            if [[ ${computeResult[$i]} -lt ${computeResult[$j]} ]]
+            then
+              temp=${computeResult[$i]}
+              computeResult[$i]=${computeResult[$j]}
+               computeResult[$j]=$temp
+            fi
+        done
+done
+echo ${computeResult[@]}

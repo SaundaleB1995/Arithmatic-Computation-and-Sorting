@@ -16,6 +16,7 @@ echo "Compute:" $number3 "+" $number1 "/" $number2 "=" $compute3
 
 compute4=$(($number1%$number2+$number3))
 echo "Compute:" $number1 "%" $number2 "+" $number3 "=" $compute4
+
 declare -A Result 
 Result[1]=$compute1
 Result[2]=$compute2
@@ -26,3 +27,7 @@ echo "Result 1=" ${Result[1]}
 echo "Result 2=" ${Result[2]}
 echo "Result 3=" ${Result[3]}
 echo "Result 4=" ${Result[4]}
+
+counter=0
+computeResult[((counter++))]=${Result[@]}
+echo "["${computeResult[@]}"]"

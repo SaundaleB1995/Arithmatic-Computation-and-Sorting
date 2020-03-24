@@ -50,4 +50,18 @@ do
             fi
         done
 done
-echo ${computeResult[@]}
+echo "Ascending Order" ${computeResult[@]}
+
+for (( i=0 ; i<=$noOfResult ; i++ ))
+do
+        for (( j=$((i+1)) ; j<=$noOfResult ; j++ ))
+        do
+            if [[ ${computeResult[$i]} -lt ${computeResult[$j]} ]]
+            then
+              temp=${computeResult[$i]}
+              computeResult[$i]=${computeResult[$j]}
+               computeResult[$j]=$temp
+            fi
+        done
+done
+echo "Descending Order" ${computeResult[@]}
